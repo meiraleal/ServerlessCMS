@@ -2,8 +2,8 @@
 /node_modules
 
 # Production
-#/build
-
+/build
+.tina
 # Generated files
 .docusaurus
 .cache-loader
