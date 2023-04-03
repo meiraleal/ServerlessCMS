@@ -2,9 +2,9 @@
   "label": "Settings",
   "navbar": [
     {
-      "label": "Docs",
+      "label": "Rio de Janeiro",
       "link": "doc",
-      "docLink": "docs/intro.mdx",
+      "docLink": "rio/intro.mdx",
       "position": "left"
     },
     {
@@ -22,46 +22,12 @@
     "style": "dark",
     "links": [
       {
-        "title": "Docs",
+        "title": "Rio de Janeiro",
         "items": [
           {
             "label": "Introduction",
-            "to": "docs/intro.mdx",
+            "to": "rio/intro.mdx",
             "_template": "internal"
-          }
-        ]
-      },
-      {
-        "title": "Community",
-        "items": [
-          {
-            "label": "Stack Overflow",
-            "href": "https://stackoverflow.com/questions/tagged/docusaurus",
-            "_template": "external"
-          },
-          {
-            "label": "Discord",
-            "href": "https://discordapp.com/invite/docusaurus",
-            "_template": "external"
-          },
-          {
-            "label": "Twitter",
-            "href": "https://twitter.com/docusaurus",
-            "_template": "external"
-          }
-        ]
-      },
-      {
-        "title": "More",
-        "items": [
-          {
-            "label": "Blog",
-            "_template": "blog"
-          },
-          {
-            "label": "GitHub",
-            "href": "https://github.com/facebook/docusaurus",
-            "_template": "external"
           }
         ]
       }

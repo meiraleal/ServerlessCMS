@@ -86,9 +86,9 @@ const formatNavbarItem = (item, subnav = false) => {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: docusaurusData.title || "My Site",
-  tagline: docusaurusData.tagline || "Dinosaurs are cool",
-  url: docusaurusData.url || "https://tinasaurus.vercel.app/",
+  title: docusaurusData.title || "Latinomads",
+  tagline: docusaurusData.tagline || "Latin America is cool",
+  url: docusaurusData.url || "https://latinomads.com/",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -102,6 +102,17 @@ const config = {
   },
 
   presets: [
+    [
+      './src/presets/guides.js',
+      {
+        rio: {
+          path: 'rio',
+          routeBasePath: 'rio',
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl: docusaurusData.url + '/admin/#/collections/doc'
+        }
+      }
+    ],
     [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */

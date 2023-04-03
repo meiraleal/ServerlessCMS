@@ -4,8 +4,8 @@
   "description": "Description will go into a meta tag in <head />",
   "blocks": [
     {
-      "document": "docs/intro.mdx",
-      "documentLabel": "Docusaurus Tutorial - 5min ⏱️",
+      "document": "rio/intro.mdx",
+      "documentLabel": "Latinomads Guides",
       "_template": "hero"
     },
     {
@@ -17,7 +17,7 @@
         },
         {
           "title": "Focus on What Matters",
-          "description": "Docusaurus lets you focus on your docs, and we'll do the chores. Go ahead and move your docs into the docs directory.\n",
+          "description": "Docusaurus lets you focus on your guides, and we'll do the chores. Go ahead and move your content into the content directory.\n",
           "image": "/img/undraw_docusaurus_tree.svg"
         },
         {
