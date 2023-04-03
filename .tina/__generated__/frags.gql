@@ -1,0 +1,342 @@
+fragment DocParts on Doc {
+  title
+  description
+  tags
+  body
+}
+
+fragment PostParts on Post {
+  title
+  authors {
+    __typename
+    name
+    title
+    url
+    image_url
+  }
+  date
+  tags
+  body
+}
+
+fragment HomepageParts on Homepage {
+  _warning
+  label
+  title
+  description
+  blocks {
+    __typename
+    ... on HomepageBlocksHero {
+      title
+      subtitle
+      document {
+        ... on Doc {
+          title
+          description
+          tags
+          body
+        }
+        ... on Document {
+          id
+        }
+      }
+      documentLabel
+    }
+    ... on HomepageBlocksFeatures {
+      items {
+        __typename
+        title
+        description
+        image
+      }
+    }
+  }
+}
+
+fragment PagesParts on Pages {
+  title
+  description
+  body
+}
+
+fragment SidebarParts on Sidebar {
+  _warning
+  label
+  items {
+    __typename
+    ... on SidebarItemsCategory {
+      title
+      link
+      docLink {
+        ... on Doc {
+          title
+          description
+          tags
+          body
+        }
+        ... on Document {
+          id
+        }
+      }
+      items {
+        __typename
+        ... on SidebarItemsCategoryItemsCategory {
+          title
+          link
+          docLink {
+            ... on Doc {
+              title
+              description
+              tags
+              body
+            }
+            ... on Document {
+              id
+            }
+          }
+          items {
+            __typename
+            ... on SidebarItemsCategoryItemsCategoryItemsCategory {
+              title
+              link
+              docLink {
+                ... on Doc {
+                  title
+                  description
+                  tags
+                  body
+                }
+                ... on Document {
+                  id
+                }
+              }
+              items {
+                __typename
+                ... on SidebarItemsCategoryItemsCategoryItemsCategoryItemsDoc {
+                  document {
+                    ... on Doc {
+                      title
+                      description
+                      tags
+                      body
+                    }
+                    ... on Document {
+                      id
+                    }
+                  }
+                  label
+                }
+                ... on SidebarItemsCategoryItemsCategoryItemsCategoryItemsLink {
+                  title
+                  href
+                }
+              }
+            }
+            ... on SidebarItemsCategoryItemsCategoryItemsDoc {
+              document {
+                ... on Doc {
+                  title
+                  description
+                  tags
+                  body
+                }
+                ... on Document {
+                  id
+                }
+              }
+              label
+            }
+            ... on SidebarItemsCategoryItemsCategoryItemsLink {
+              title
+              href
+            }
+          }
+        }
+        ... on SidebarItemsCategoryItemsDoc {
+          document {
+            ... on Doc {
+              title
+              description
+              tags
+              body
+            }
+            ... on Document {
+              id
+            }
+          }
+          label
+        }
+        ... on SidebarItemsCategoryItemsLink {
+          title
+          href
+        }
+      }
+    }
+    ... on SidebarItemsDoc {
+      document {
+        ... on Doc {
+          title
+          description
+          tags
+          body
+        }
+        ... on Document {
+          id
+        }
+      }
+      label
+    }
+    ... on SidebarItemsLink {
+      title
+      href
+    }
+  }
+}
+
+fragment SettingsParts on Settings {
+  _warning
+  label
+  logo {
+    __typename
+    alt
+    src
+  }
+  title
+  tagline
+  url
+  navbar {
+    __typename
+    label
+    link
+    docLink {
+      ... on Doc {
+        title
+        description
+        tags
+        body
+      }
+      ... on Document {
+        id
+      }
+    }
+    pageLink {
+      ... on Pages {
+        title
+        description
+        body
+      }
+      ... on Document {
+        id
+      }
+    }
+    externalLink
+    position
+    items {
+      __typename
+      label
+      link
+      docLink {
+        ... on Doc {
+          title
+          description
+          tags
+          body
+        }
+        ... on Document {
+          id
+        }
+      }
+      pageLink {
+        ... on Pages {
+          title
+          description
+          body
+        }
+        ... on Document {
+          id
+        }
+      }
+      externalLink
+      position
+      items {
+        __typename
+        label
+        link
+        docLink {
+          ... on Doc {
+            title
+            description
+            tags
+            body
+          }
+          ... on Document {
+            id
+          }
+        }
+        pageLink {
+          ... on Pages {
+            title
+            description
+            body
+          }
+          ... on Document {
+            id
+          }
+        }
+        externalLink
+        position
+      }
+    }
+  }
+  footer {
+    __typename
+    style
+    links {
+      __typename
+      title
+      items {
+        __typename
+        ... on SettingsFooterLinksItemsInternal {
+          label
+          to {
+            ... on Doc {
+              title
+              description
+              tags
+              body
+            }
+            ... on Pages {
+              title
+              description
+              body
+            }
+            ... on Post {
+              title
+              authors {
+                __typename
+                name
+                title
+                url
+                image_url
+              }
+              date
+              tags
+              body
+            }
+            ... on Document {
+              id
+            }
+          }
+        }
+        ... on SettingsFooterLinksItemsBlog {
+          label
+        }
+        ... on SettingsFooterLinksItemsExternal {
+          label
+          href
+        }
+      }
+    }
+    copyright
+  }
+}
