@@ -3,7 +3,7 @@
 
 # Production
 /build
-.tina
+#.tina
 # Generated files
 .docusaurus
 .cache-loader
