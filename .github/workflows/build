@@ -28,7 +28,8 @@ jobs:
         with:
           node-version: 19
           registry-url: https://registry.npmjs.org/
-      - run: npm install
+      - name: Install packages
+        - run: npm install
       - name: Build Docussaurus
         run: npx docussaurus build
       - name: Build TinaCMS
