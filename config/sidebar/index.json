@@ -2,10 +2,6 @@
   "label": "Rio Sidebar",
   "items": [
     {
-      "document": "rio/Topic-1.mdx",
-      "_template": "doc"
-    },
-    {
       "document": "rio/intro.mdx",
       "_template": "doc"
     },
@@ -16,4 +12,4 @@
       "_template": "category"
     }
   ]
-}
+} 
