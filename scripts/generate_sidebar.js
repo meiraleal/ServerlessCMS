@@ -1,5 +1,4 @@
-const fs = require('fs');
-const path = require('path');
+const util = require('util');
 
 const topics = {
   'Visa and Legal Matters': [
@@ -60,36 +59,36 @@ const topics = {
   ],
 };
 
-function createDirectoriesAndFiles(topic, subTopics) {
-  const topicDirectory = path.join(`${__dirname}/../rio/`, topic);
-  if (!fs.existsSync(topicDirectory)) {
-    fs.mkdirSync(topicDirectory);
-  }
+function urlFormat(str) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
 
-  subTopics.forEach((subTopic) => {
-    const fileName = `${subTopic
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-|-$/g, '')
-    }.mdx`;
+const topicsData = [];
 
-    const filePath = path.join(topicDirectory, fileName);
-    const fileContent = `---
-  title: ${subTopic}
-  description: ${subTopic}
-  tags:
-    - Rio de Janeiro
----
-  # ${subTopic}
-  `;
+for (const [topic, subTopics] of Object.entries(topics)) {
+  const topicUrl = urlFormat(topic);
+  const items = subTopics.map((subTopic) => {
+    const subTopicUrl = urlFormat(subTopic);
+    return {
+      document: `rio/${topicUrl}/${subTopicUrl}.mdx`,
+      _template: 'doc',
+    };
+  });
 
-    fs.writeFileSync(filePath, fileContent);
+  items.push({
+    title: 'Rio de Janeiro',
+    link: 'generated',
+    items: [],
+    _template: 'category',
+  });
+
+  topicsData.push({
+    label: topic,
+    items,
   });
 }
 
-for (const [topic, subTopics] of Object.entries(topics)) {
-  createDirectoriesAndFiles(topic
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, ''), subTopics);
-}
+console.log(util.inspect(topicsData, { showHidden: false, depth: null, colors: true }));

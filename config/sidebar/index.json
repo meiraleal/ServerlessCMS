@@ -1,15 +1,263 @@
 {
   "label": "Rio Sidebar",
+  "type": "category",
+  "_template": "category",
   "items": [
     {
-      "document": "rio/intro.mdx",
-      "_template": "doc"
+      "label": "Visa and Legal Matters",
+      "type": "category",
+      "items": [
+        {
+          "document": "rio/visa-and-legal-matters/get-background-check-for-student-visa-while-in-brazil.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/visa-and-legal-matters/applying-for-digital-nomad-visa-while-in-brazil-us-and-non-us.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/visa-and-legal-matters/extending-tourist-visa-for-90-more-days.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/visa-and-legal-matters/filing-a-60-day-notice-for-60-more-days-in-brazil.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/visa-and-legal-matters/applying-for-residence-permit-while-in-brazil.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/visa-and-legal-matters/setting-up-migranteweb-2-0-while-in-brazil.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/visa-and-legal-matters/how-to-get-docs-translated-for-visa-stuff.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/visa-and-legal-matters/recommended-visa-help.mdx",
+          "_template": "doc"
+        },
+        {
+          "title": "Rio de Janeiro",
+          "link": "generated",
+          "items": [],
+          "_template": "category"
+        }
+      ]
     },
     {
-      "title": "Rio de Janeiro",
-      "link": "generated",
-      "items": [],
-      "_template": "category"
+      "label": "Practical Matters",
+      "type": "category",
+      "items": [
+        {
+          "document": "rio/practical-matters/cpf.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/practical-matters/how-to-get-a-brazilian-phone-number-data-plan-e-sim.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/practical-matters/how-to-send-pix-payments-without-a-brazilian-account.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/practical-matters/how-to-get-a-brazilian-bank-account-including-pix.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/practical-matters/atms-to-use-with-foreign-cards.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/practical-matters/payment-with-international-cards.mdx",
+          "_template": "doc"
+        },
+        {
+          "title": "Rio de Janeiro",
+          "link": "generated",
+          "items": [],
+          "_template": "category"
+        }
+      ]
+    },
+    {
+      "label": "Safety and Health",
+      "type": "category",
+      "items": [
+        {
+          "document": "rio/safety-and-health/how-to-avoid-getting-robbed.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/safety-and-health/if-you-are-getting-robbed.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/safety-and-health/when-to-be-worried.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/safety-and-health/what-to-do-if-you-get-pickpocketed-robbed.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/safety-and-health/how-to-get-medical-treatment.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/safety-and-health/where-to-get-a-yellow-fever-vaccine.mdx",
+          "_template": "doc"
+        },
+        {
+          "title": "Rio de Janeiro",
+          "link": "generated",
+          "items": [],
+          "_template": "category"
+        }
+      ]
+    },
+    {
+      "label": "Accommodation and Logistics",
+      "type": "category",
+      "items": [
+        {
+          "document": "rio/accommodation-and-logistics/how-to-store-bags-storage-unit.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/accommodation-and-logistics/how-to-find-a-long-term-apartment-12-months-and-set-up-utilities.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/accommodation-and-logistics/how-to-find-a-coworking-space.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/accommodation-and-logistics/how-to-get-packages-shipped-to-brazil.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/accommodation-and-logistics/best-places-to-work.mdx",
+          "_template": "doc"
+        },
+        {
+          "title": "Rio de Janeiro",
+          "link": "generated",
+          "items": [],
+          "_template": "category"
+        }
+      ]
+    },
+    {
+      "label": "Weekend Trips",
+      "type": "category",
+      "items": [
+        {
+          "document": "rio/weekend-trips/ilha-grande.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/weekend-trips/paraty.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/weekend-trips/buzios.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/weekend-trips/s-o-thom.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/weekend-trips/vila-velha.mdx",
+          "_template": "doc"
+        },
+        {
+          "title": "Rio de Janeiro",
+          "link": "generated",
+          "items": [],
+          "_template": "category"
+        }
+      ]
+    },
+    {
+      "label": "Services and Recommendations",
+      "type": "category",
+      "items": [
+        {
+          "document": "rio/services-and-recommendations/recommended-salons-barber-shops.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/services-and-recommendations/recommended-house-cleaners.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/services-and-recommendations/where-to-print-flyers-business-materials.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/services-and-recommendations/recommended-hang-gliding-companies-contacts.mdx",
+          "_template": "doc"
+        },
+        {
+          "title": "Rio de Janeiro",
+          "link": "generated",
+          "items": [],
+          "_template": "category"
+        }
+      ]
+    },
+    {
+      "label": "Cultural and Social Activities",
+      "type": "category",
+      "items": [
+        {
+          "document": "rio/cultural-and-social-activities/carnaval-tips.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/cultural-and-social-activities/how-to-volunteer.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/cultural-and-social-activities/s-o-paulo-whatsapp.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/cultural-and-social-activities/trip-to-buenos-aires.mdx",
+          "_template": "doc"
+        },
+        {
+          "title": "Rio de Janeiro",
+          "link": "generated",
+          "items": [],
+          "_template": "category"
+        }
+      ]
+    },
+    {
+      "label": "Technology and Driving",
+      "type": "category",
+      "items": [
+        {
+          "document": "rio/technology-and-driving/how-to-get-brazilian-applications-from-google-play-store.mdx",
+          "_template": "doc"
+        },
+        {
+          "document": "rio/technology-and-driving/how-to-get-a-brazilian-driver-s-license-if-you-have-an-existing-foreign-license.mdx",
+          "_template": "doc"
+        },
+        {
+          "title": "Rio de Janeiro",
+          "link": "generated",
+          "items": [],
+          "_template": "category"
+        }
+      ]
     }
   ]
-} 
+}
