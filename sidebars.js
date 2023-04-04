@@ -4,7 +4,7 @@ const getDocId = (doc) => doc && doc
   .replace(/\.mdx?$/, '');
 
 const getItem = (item) => {
-  const type = item._template || item.type;
+  const { type } = item;
 
   const itemProps = {
     type,
@@ -17,7 +17,7 @@ const getItem = (item) => {
     }
 
     itemProps.id = getDocId(item.document);
-    console.log({ itemProps, item });
+
     if (item.label) {
       itemProps.label = item.label;
     }
@@ -43,7 +43,7 @@ const getItem = (item) => {
       }
     }
 
-    itemProps.items = item.items.flatMap((item) => getItem(item));
+    itemProps.items = item.items.flatMap((i) => getItem(i));
   }
 
   if (type === 'link') {
