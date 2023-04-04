@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktinasaurus=self.webpackChunktinasaurus||[]).push([[598],{2727:i=>{i.exports=JSON.parse('{"label":"rio","permalink":"/rio/tags/rio","allTagsPath":"/rio/tags","count":1,"items":[{"id":"intro","title":"Rio de Janeiro","description":"Discover Rio","permalink":"/rio/intro"}]}')}}]);
