@@ -62,7 +62,7 @@ const topics = {
 
 function createDirectoriesAndFiles(topic, subTopics) {
     
-    const topicDirectory = path.join(__dirname + "/rio/", topic);
+    const topicDirectory = path.join(__dirname + "/../rio/", topic);
     if (!fs.existsSync(topicDirectory)) {
       fs.mkdirSync(topicDirectory);
     }
@@ -80,8 +80,10 @@ function createDirectoriesAndFiles(topic, subTopics) {
   description: ${subTopic}
   tags:
     - Rio de Janeiro
-  ---`;
-  console.log({topicDirectory, filePath, fileContent})
+  ---
+  # ${subTopic}
+  `;
+  
       fs.writeFileSync(filePath, fileContent);
     });
   }
