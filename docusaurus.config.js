@@ -107,6 +107,7 @@ const config = {
       {
         rio: {
           path: 'rio',
+          routeBasePath: 'rio',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: docusaurusData.url + '/admin/#/collections/doc'
         }
