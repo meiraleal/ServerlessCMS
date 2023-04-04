@@ -80,7 +80,7 @@ function createDirectoriesAndFiles(topic, subTopics) {
   description: ${subTopic}
   tags:
     - Rio de Janeiro
-  ---
+---
   # ${subTopic}
   `;
   
