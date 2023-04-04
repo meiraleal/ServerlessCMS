@@ -74,21 +74,16 @@ for (const [topic, subTopics] of Object.entries(topics)) {
     const subTopicUrl = urlFormat(subTopic);
     return {
       document: `rio/${topicUrl}/${subTopicUrl}.mdx`,
-      _template: 'doc',
+      type: 'doc',
+      label: subTopic,
     };
-  });
-
-  items.push({
-    title: 'Rio de Janeiro',
-    link: 'generated',
-    items: [],
-    _template: 'category',
   });
 
   topicsData.push({
     label: topic,
     items,
+    type: 'category',
   });
 }
 
-console.log(util.inspect(topicsData, { showHidden: false, depth: null, colors: true }));
+console.log(JSON.stringify(topicsData));

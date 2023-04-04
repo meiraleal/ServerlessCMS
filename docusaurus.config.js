@@ -1,55 +1,45 @@
-const docusaurusData = require("./config/docusaurus/index.json");
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const docusaurusData = require('./config/docusaurus/index.json');
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const getDocId = (doc) => doc
+  .replace(/\.mdx?$/, '')
+  .split('/')
+  .slice(1)
+  .join('/');
 
-const getDocId = (doc) => {
-  return doc
-    .replace(/\.mdx?$/, "")
-    .split("/")
-    .slice(1)
-    .join("/");
-};
+const getPageRoute = (page) => page
+  .replace(/\.mdx?$/, '')
+  .split('/')
+  .slice(2)
+  .join('/');
 
-const getPageRoute = (page) => {
-  return page
-    .replace(/\.mdx?$/, "")
-    .split("/")
-    .slice(2)
-    .join("/");
-};
-
-const getPath = (page) => {
-  return page.replace(/\.mdx?$/, "");
-};
+const getPath = (page) => page.replace(/\.mdx?$/, '');
 
 const formatFooterItem = (item) => {
   if (item.title) {
     return {
       title: item.title,
-      items: item.items.map((subItem) => {
-        return formatFooterItem(subItem);
-      }),
+      items: item.items.map((subItem) => formatFooterItem(subItem)),
     };
-  } else {
-    let linkObject = {
-      label: item.label,
-    };
-
-    if (item.to) {
-      linkObject.to = getPath(item.to);
-    } else if (item.href) {
-      linkObject.href = item.href;
-    } else {
-      linkObject.to = "/blog";
-    }
-
-    return linkObject;
   }
+  const linkObject = {
+    label: item.label,
+  };
+
+  if (item.to) {
+    linkObject.to = getPath(item.to);
+  } else if (item.href) {
+    linkObject.href = item.href;
+  } else {
+    linkObject.to = '/blog';
+  }
+
+  return linkObject;
 };
 
 const formatNavbarItem = (item, subnav = false) => {
-  let navItem = {
+  const navItem = {
     label: item.label,
   };
 
@@ -57,28 +47,26 @@ const formatNavbarItem = (item, subnav = false) => {
     navItem.position = item.position;
   }
 
-  if (item.link === "external" && item.externalLink) {
+  if (item.link === 'external' && item.externalLink) {
     navItem.href = item.externalLink;
   }
 
-  if (item.link === "blog") {
-    navItem.to = "/blog";
+  if (item.link === 'blog') {
+    navItem.to = '/blog';
   }
 
-  if (item.link === "page" && item.pageLink) {
+  if (item.link === 'page' && item.pageLink) {
     navItem.to = getPageRoute(item.pageLink);
   }
 
-  if (item.link === "doc" && item.docLink) {
-    navItem.type = "doc";
+  if (item.link === 'doc' && item.docLink) {
+    navItem.type = 'doc';
     navItem.docId = getDocId(item.docLink);
   }
 
   if (item.items) {
-    navItem.type = "dropdown";
-    navItem.items = item.items.map((subItem) => {
-      return formatNavbarItem(subItem, true);
-    });
+    navItem.type = 'dropdown';
+    navItem.items = item.items.map((subItem) => formatNavbarItem(subItem, true));
   }
 
   return navItem;
@@ -86,47 +74,36 @@ const formatNavbarItem = (item, subnav = false) => {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: docusaurusData.title || "Latinomads",
-  tagline: docusaurusData.tagline || "Latin America is cool",
-  url: docusaurusData.url || "https://latinomads.com/",
-  baseUrl: "/",
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  title: docusaurusData.title || 'Latinomads',
+  tagline: docusaurusData.tagline || 'Latin America is cool',
+  url: docusaurusData.url || 'https://latinomads.com/',
+  baseUrl: '/',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/favicon.ico',
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
     [
-      './src/presets/guides.js',
-      {
-        rio: {
-          path: 'rio',
-          routeBasePath: 'rio',
-          sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: docusaurusData.url + '/admin/#/collections/doc'
-        }
-      }
-    ],
-    [
-      "classic",
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: docusaurusData.url + "/admin/#/collections/doc",
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl: `${docusaurusData.url}/admin/#/collections/doc`,
         },
         blog: {
           showReadingTime: true,
-          editUrl: docusaurusData.url + "/admin/#/collections/post",
+          editUrl: `${docusaurusData.url}/admin/#/collections/post`,
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
@@ -136,27 +113,23 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: docusaurusData.title || "",
+        title: docusaurusData.title || '',
         logo: {
           alt: docusaurusData?.logo?.alt
             ? docusaurusData?.logo?.alt
-            : "My Logo",
+            : 'My Logo',
           src: docusaurusData?.logo?.src
             ? docusaurusData?.logo?.src
-            : "img/logo.svg",
+            : 'img/logo.svg',
         },
-        items: docusaurusData.navbar.map((item) => {
-          return formatNavbarItem(item);
-        }),
+        items: docusaurusData.navbar.map((item) => formatNavbarItem(item)),
       },
       footer: {
-        style: docusaurusData.footer?.style || "dark",
-        links: docusaurusData.footer?.links.map((item) => {
-          return formatFooterItem(item);
-        }),
+        style: docusaurusData.footer?.style || 'dark',
+        links: docusaurusData.footer?.links.map((item) => formatFooterItem(item)),
         copyright:
-          `Copyright © ${new Date().getFullYear()} ` +
-          (docusaurusData.footer?.copyright || docusaurusData.title),
+          `Copyright © ${new Date().getFullYear()} ${
+            docusaurusData.footer?.copyright || docusaurusData.title}`,
       },
       prism: {
         theme: lightCodeTheme,
