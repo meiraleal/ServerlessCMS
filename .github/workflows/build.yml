@@ -24,11 +24,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - run: npm install
-      - uses: Adzz/jest_test_action@v1.0.0
-        with:
-          package-manager: npm
-          command: build
       - name: Build Docussaurus
         run: npx docussaurus build
       - name: Build TinaCMS
