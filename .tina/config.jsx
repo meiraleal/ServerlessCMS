@@ -133,8 +133,8 @@ const PostCollection = {
 
 const DocsCollection = {
   name: "doc",
-  label: "Rio",
-  path: "rio",
+  label: "Docs",
+  path: "docs",
   format: "mdx",
   fields: [
     {
