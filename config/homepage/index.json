@@ -4,7 +4,7 @@
   "description": "Description will go into a meta tag in <head />",
   "blocks": [
     {
-      "document": "docs/index.mdx",
+      "href": "/docs",
       "documentLabel": "Latinomads Guides",
       "_template": "hero"
     },
