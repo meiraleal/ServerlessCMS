@@ -1,14 +1,16 @@
 const sidebarData = require('./config/sidebar/index.json');
 
-const getDocId = (doc) => doc && doc
-  .replace(/\.mdx?$/, '');
+const getDocId = (doc) => doc
+  .replace(/\.mdx?$/, '')
+  .split('/')
+  .slice(1)
+  .join('/');
 
 const getItem = (item) => {
-  const { type } = item;
+  const type = item._template;
 
   const itemProps = {
     type,
-    label: item.label || item.title,
   };
 
   if (type === 'doc') {
@@ -43,7 +45,7 @@ const getItem = (item) => {
       }
     }
 
-    itemProps.items = item.items.flatMap((i) => getItem(i));
+    itemProps.items = item.items.flatMap((item) => getItem(item));
   }
 
   if (type === 'link') {

@@ -73,16 +73,17 @@ for (const [topic, subTopics] of Object.entries(topics)) {
   const items = subTopics.map((subTopic) => {
     const subTopicUrl = urlFormat(subTopic);
     return {
-      document: `rio/${topicUrl}/${subTopicUrl}.mdx`,
-      type: 'doc',
-      label: subTopic,
+      document: `docs/${topicUrl}/${subTopicUrl}.mdx`,
+      _template: 'doc',
+      title: subTopic,
     };
   });
 
   topicsData.push({
-    label: topic,
+    title: topic,
     items,
-    type: 'category',
+    link: 'generated',
+    _template: 'category',
   });
 }
 

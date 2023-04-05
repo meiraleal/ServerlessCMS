@@ -1,254 +1,221 @@
 {
   "label": "Rio Sidebar",
-  "type": "category",
   "items": [
     {
-      "label": "Visa and Legal Matters",
+      "title": "Visa and Legal Matters",
+      "link": "none",
       "items": [
         {
-          "document": "visa-and-legal-matters/get-background-check-for-student-visa-while-in-brazil.mdx",
-          "type": "doc",
-          "label": "Get background check for student visa while in Brazil"
+          "document": "docs/visa-and-legal-matters/get-background-check-for-student-visa-while-in-brazil.mdx",
+          "_template": "doc"
         },
         {
-          "document": "visa-and-legal-matters/applying-for-digital-nomad-visa-while-in-brazil-us-and-non-us.mdx",
-          "type": "doc",
-          "label": "Applying for Digital Nomad visa while in Brazil (US and NON-US)"
+          "document": "docs/visa-and-legal-matters/applying-for-digital-nomad-visa-while-in-brazil-us-and-non-us.mdx",
+          "_template": "doc"
         },
         {
-          "document": "visa-and-legal-matters/extending-tourist-visa-for-90-more-days.mdx",
-          "type": "doc",
-          "label": "Extending Tourist Visa for 90 more days"
+          "document": "docs/visa-and-legal-matters/extending-tourist-visa-for-90-more-days.mdx",
+          "_template": "doc"
         },
         {
-          "document": "visa-and-legal-matters/filing-a-60-day-notice-for-60-more-days-in-brazil.mdx",
-          "type": "doc",
-          "label": "Filing a 60-day notice for 60 more days in Brazil"
+          "document": "docs/visa-and-legal-matters/filing-a-60-day-notice-for-60-more-days-in-brazil.mdx",
+          "_template": "doc"
         },
         {
-          "document": "visa-and-legal-matters/applying-for-residence-permit-while-in-brazil.mdx",
-          "type": "doc",
-          "label": "Applying for residence permit while in Brazil"
+          "document": "docs/visa-and-legal-matters/applying-for-residence-permit-while-in-brazil.mdx",
+          "_template": "doc"
         },
         {
-          "document": "visa-and-legal-matters/setting-up-migranteweb-2-0-while-in-brazil.mdx",
-          "type": "doc",
-          "label": "Setting up MigranteWeb 2.0 while in Brazil"
+          "document": "docs/visa-and-legal-matters/setting-up-migranteweb-2-0-while-in-brazil.mdx",
+          "_template": "doc"
         },
         {
-          "document": "visa-and-legal-matters/how-to-get-docs-translated-for-visa-stuff.mdx",
-          "type": "doc",
-          "label": "How to Get Docs Translated for Visa Stuff"
+          "document": "docs/visa-and-legal-matters/how-to-get-docs-translated-for-visa-stuff.mdx",
+          "_template": "doc"
         },
         {
-          "document": "visa-and-legal-matters/recommended-visa-help.mdx",
-          "type": "doc",
-          "label": "Recommended Visa Help"
+          "document": "docs/visa-and-legal-matters/recommended-visa-help.mdx",
+          "_template": "doc"
         }
       ],
-      "type": "category"
+      "_template": "category"
     },
     {
-      "label": "Practical Matters",
+      "title": "Practical Matters",
+      "link": "generated",
       "items": [
         {
-          "document": "practical-matters/cpf.mdx",
-          "type": "doc",
-          "label": "CPF"
+          "document": "docs/practical-matters/cpf.mdx",
+          "_template": "doc"
         },
         {
-          "document": "practical-matters/how-to-get-a-brazilian-phone-number-data-plan-e-sim.mdx",
-          "type": "doc",
-          "label": "How to get a Brazilian Phone Number + Data Plan (e-sim)"
+          "document": "docs/practical-matters/how-to-get-a-brazilian-phone-number-data-plan-e-sim.mdx",
+          "_template": "doc"
         },
         {
-          "document": "practical-matters/how-to-send-pix-payments-without-a-brazilian-account.mdx",
-          "type": "doc",
-          "label": "How to send Pix payments without a Brazilian account"
+          "document": "docs/practical-matters/how-to-send-pix-payments-without-a-brazilian-account.mdx",
+          "_template": "doc"
         },
         {
-          "document": "practical-matters/how-to-get-a-brazilian-bank-account-including-pix.mdx",
-          "type": "doc",
-          "label": "How to get a Brazilian bank account (including Pix)"
+          "document": "docs/practical-matters/how-to-get-a-brazilian-bank-account-including-pix.mdx",
+          "_template": "doc"
         },
         {
-          "document": "practical-matters/atms-to-use-with-foreign-cards.mdx",
-          "type": "doc",
-          "label": "ATMs to use with foreign cards"
+          "document": "docs/practical-matters/atms-to-use-with-foreign-cards.mdx",
+          "_template": "doc"
         },
         {
-          "document": "practical-matters/payment-with-international-cards.mdx",
-          "type": "doc",
-          "label": "Payment with international cards"
+          "document": "docs/practical-matters/payment-with-international-cards.mdx",
+          "_template": "doc"
         }
       ],
-      "type": "category"
+      "_template": "category"
     },
     {
-      "label": "Safety and Health",
+      "title": "Safety and Health",
+      "link": "generated",
       "items": [
         {
-          "document": "safety-and-health/how-to-avoid-getting-robbed.mdx",
-          "type": "doc",
-          "label": "How to avoid getting robbed"
+          "document": "docs/safety-and-health/how-to-avoid-getting-robbed.mdx",
+          "_template": "doc"
         },
         {
-          "document": "safety-and-health/if-you-are-getting-robbed.mdx",
-          "type": "doc",
-          "label": "If you are getting robbed"
+          "document": "docs/safety-and-health/if-you-are-getting-robbed.mdx",
+          "_template": "doc"
         },
         {
-          "document": "safety-and-health/when-to-be-worried.mdx",
-          "type": "doc",
-          "label": "When to be worried?"
+          "document": "docs/safety-and-health/when-to-be-worried.mdx",
+          "_template": "doc"
         },
         {
-          "document": "safety-and-health/what-to-do-if-you-get-pickpocketed-robbed.mdx",
-          "type": "doc",
-          "label": "What to do if you get pickpocketed/robbed"
+          "document": "docs/safety-and-health/what-to-do-if-you-get-pickpocketed-robbed.mdx",
+          "_template": "doc"
         },
         {
-          "document": "safety-and-health/how-to-get-medical-treatment.mdx",
-          "type": "doc",
-          "label": "How to get medical treatment"
+          "document": "docs/safety-and-health/how-to-get-medical-treatment.mdx",
+          "_template": "doc"
         },
         {
-          "document": "safety-and-health/where-to-get-a-yellow-fever-vaccine.mdx",
-          "type": "doc",
-          "label": "Where to Get a Yellow Fever Vaccine"
+          "document": "docs/safety-and-health/where-to-get-a-yellow-fever-vaccine.mdx",
+          "_template": "doc"
         }
       ],
-      "type": "category"
+      "_template": "category"
     },
     {
-      "label": "Accommodation and Logistics",
+      "title": "Accommodation and Logistics",
+      "link": "generated",
       "items": [
         {
-          "document": "accommodation-and-logistics/how-to-store-bags-storage-unit.mdx",
-          "type": "doc",
-          "label": "How to store bags (storage unit)"
+          "document": "docs/accommodation-and-logistics/how-to-store-bags-storage-unit.mdx",
+          "_template": "doc"
         },
         {
-          "document": "accommodation-and-logistics/how-to-find-a-long-term-apartment-12-months-and-set-up-utilities.mdx",
-          "type": "doc",
-          "label": "How to find a long-term apartment (12+ months) and set up utilities"
+          "document": "docs/accommodation-and-logistics/how-to-find-a-long-term-apartment-12-months-and-set-up-utilities.mdx",
+          "_template": "doc"
         },
         {
-          "document": "accommodation-and-logistics/how-to-find-a-coworking-space.mdx",
-          "type": "doc",
-          "label": "How to find a coworking space"
+          "document": "docs/accommodation-and-logistics/how-to-find-a-coworking-space.mdx",
+          "_template": "doc"
         },
         {
-          "document": "accommodation-and-logistics/how-to-get-packages-shipped-to-brazil.mdx",
-          "type": "doc",
-          "label": "How to get packages shipped to Brazil"
+          "document": "docs/accommodation-and-logistics/how-to-get-packages-shipped-to-brazil.mdx",
+          "_template": "doc"
         },
         {
-          "document": "accommodation-and-logistics/best-places-to-work.mdx",
-          "type": "doc",
-          "label": "Best places to work"
+          "document": "docs/accommodation-and-logistics/best-places-to-work.mdx",
+          "_template": "doc"
         }
       ],
-      "type": "category"
+      "_template": "category"
     },
     {
-      "label": "Weekend Trips",
+      "title": "Weekend Trips",
+      "link": "generated",
       "items": [
         {
-          "document": "weekend-trips/ilha-grande.mdx",
-          "type": "doc",
-          "label": "Ilha Grande"
+          "document": "docs/weekend-trips/ilha-grande.mdx",
+          "_template": "doc"
         },
         {
-          "document": "weekend-trips/paraty.mdx",
-          "type": "doc",
-          "label": "Paraty"
+          "document": "docs/weekend-trips/paraty.mdx",
+          "_template": "doc"
         },
         {
-          "document": "weekend-trips/buzios.mdx",
-          "type": "doc",
-          "label": "Buzios"
+          "document": "docs/weekend-trips/buzios.mdx",
+          "_template": "doc"
         },
         {
-          "document": "weekend-trips/s-o-thom.mdx",
-          "type": "doc",
-          "label": "São Thomè"
+          "document": "docs/weekend-trips/s-o-thom.mdx",
+          "_template": "doc"
         },
         {
-          "document": "weekend-trips/vila-velha.mdx",
-          "type": "doc",
-          "label": "Vila Velha"
+          "document": "docs/weekend-trips/vila-velha.mdx",
+          "_template": "doc"
         }
       ],
-      "type": "category"
+      "_template": "category"
     },
     {
-      "label": "Services and Recommendations",
+      "title": "Services and Recommendations",
+      "link": "generated",
       "items": [
         {
-          "document": "services-and-recommendations/recommended-salons-barber-shops.mdx",
-          "type": "doc",
-          "label": "Recommended Salons + Barber Shops"
+          "document": "docs/services-and-recommendations/recommended-salons-barber-shops.mdx",
+          "_template": "doc"
         },
         {
-          "document": "services-and-recommendations/recommended-house-cleaners.mdx",
-          "type": "doc",
-          "label": "Recommended House Cleaners"
+          "document": "docs/services-and-recommendations/recommended-house-cleaners.mdx",
+          "_template": "doc"
         },
         {
-          "document": "services-and-recommendations/where-to-print-flyers-business-materials.mdx",
-          "type": "doc",
-          "label": "Where to print flyers/business materials"
+          "document": "docs/services-and-recommendations/where-to-print-flyers-business-materials.mdx",
+          "_template": "doc"
         },
         {
-          "document": "services-and-recommendations/recommended-hang-gliding-companies-contacts.mdx",
-          "type": "doc",
-          "label": "Recommended hang gliding companies/contacts"
+          "document": "docs/services-and-recommendations/recommended-hang-gliding-companies-contacts.mdx",
+          "_template": "doc"
         }
       ],
-      "type": "category"
+      "_template": "category"
     },
     {
-      "label": "Cultural and Social Activities",
+      "title": "Cultural and Social Activities",
+      "link": "generated",
       "items": [
         {
-          "document": "cultural-and-social-activities/carnaval-tips.mdx",
-          "type": "doc",
-          "label": "Carnaval Tips"
+          "document": "docs/cultural-and-social-activities/carnaval-tips.mdx",
+          "_template": "doc"
         },
         {
-          "document": "cultural-and-social-activities/how-to-volunteer.mdx",
-          "type": "doc",
-          "label": "How to Volunteer"
+          "document": "docs/cultural-and-social-activities/how-to-volunteer.mdx",
+          "_template": "doc"
         },
         {
-          "document": "cultural-and-social-activities/s-o-paulo-whatsapp.mdx",
-          "type": "doc",
-          "label": "São Paulo Whatsapp"
+          "document": "docs/cultural-and-social-activities/s-o-paulo-whatsapp.mdx",
+          "_template": "doc"
         },
         {
-          "document": "cultural-and-social-activities/trip-to-buenos-aires.mdx",
-          "type": "doc",
-          "label": "Trip to Buenos Aires"
+          "document": "docs/cultural-and-social-activities/trip-to-buenos-aires.mdx",
+          "_template": "doc"
         }
       ],
-      "type": "category"
+      "_template": "category"
     },
     {
-      "label": "Technology and Driving",
+      "title": "Technology and Driving",
+      "link": "generated",
       "items": [
         {
-          "document": "technology-and-driving/how-to-get-brazilian-applications-from-google-play-store.mdx",
-          "type": "doc",
-          "label": "How to get Brazilian applications from Google Play Store"
+          "document": "docs/technology-and-driving/how-to-get-brazilian-applications-from-google-play-store.mdx",
+          "_template": "doc"
         },
         {
-          "document": "technology-and-driving/how-to-get-a-brazilian-driver-s-license-if-you-have-an-existing-foreign-license.mdx",
-          "type": "doc",
-          "label": "How to get a Brazilian driver's license (if you have an existing foreign license)"
+          "document": "docs/technology-and-driving/how-to-get-a-brazilian-driver-s-license-if-you-have-an-existing-foreign-license.mdx",
+          "_template": "doc"
         }
       ],
-      "type": "category"
+      "_template": "category"
     }
   ]
 }
