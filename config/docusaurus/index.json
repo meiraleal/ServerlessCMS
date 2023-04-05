@@ -4,7 +4,7 @@
     {
       "label": "Rio de Janeiro",
       "link": "doc",
-      "docLink": "docs/intro.mdx",
+      "docLink": "docs/index.mdx",
       "position": "left"
     },
     {
@@ -25,8 +25,8 @@
         "title": "Rio de Janeiro",
         "items": [
           {
-            "label": "Introduction",
-            "to": "docs/intro.mdx",
+            "label": "Rio de Janeiro",
+            "to": "docs/index.mdx",
             "_template": "internal"
           }
         ]
