@@ -1,17 +1,17 @@
-import React from "react";
-import clsx from "clsx";
-import Link from "@docusaurus/Link";
-import styles from "./index.module.css";
-import { getDocPath, titleFromSlug } from "../../../util";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import React from 'react';
+import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import styles from './index.module.css';
+import { getDocPath, titleFromSlug } from '../../../util';
 
-export const Hero = ({ data, index }) => {
+export function Hero({ data, index }) {
   const { siteConfig } = useDocusaurusContext();
 
   return (
     <header
       key={index}
-      className={clsx("hero hero--primary", styles.heroBanner)}
+      className={clsx('hero hero--primary', styles.heroBanner)}
     >
       <div className="container">
         <h1 className="hero__title">
@@ -24,7 +24,7 @@ export const Hero = ({ data, index }) => {
           <div className={styles.buttons}>
             <Link
               className="button button--secondary button--lg"
-              to={getDocPath(data.document)}
+              to="/docs"
             >
               {data.documentLabel
                 ? data.documentLabel
@@ -35,4 +35,4 @@ export const Hero = ({ data, index }) => {
       </div>
     </header>
   );
-};
+}
