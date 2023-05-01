@@ -1,9 +1,0 @@
-{
-  "label": "Rio Sidebar",
-  "items": [
-    {
-      "document": "docs/index.mdx",
-      "_template": "doc"
-    }
-  ]
-}
