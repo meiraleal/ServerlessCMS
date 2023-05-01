@@ -2,12 +2,6 @@
   "label": "Settings",
   "navbar": [
     {
-      "label": "Rio de Janeiro",
-      "link": "doc",
-      "docLink": "docs/index.mdx",
-      "position": "left"
-    },
-    {
       "label": "Blog",
       "link": "blog",
       "position": "left"
