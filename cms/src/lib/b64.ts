@@ -37,7 +37,6 @@ export function newB64Decode(str: string) {
 
 export function b64Decode(str: string) {    
     const value = newB64Decode(str);
-    console.log({str, value});
     if (!value) {
         return JSON.parse(legacyB64Decode(str));
     }

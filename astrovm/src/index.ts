@@ -4,7 +4,7 @@ import render from './ui';
 
 (async () => {
   // Monaco Code Editor
-  let Monaco = await import('./editor/modules/monaco');
+  const Monaco = await import('./editor/modules/monaco');
   const hash = window.location.hash;
   let initialModels = {};
   if (hash) {
@@ -15,4 +15,5 @@ import render from './ui';
     }
   }
   render({ Monaco, initialModels });
+   
 })();

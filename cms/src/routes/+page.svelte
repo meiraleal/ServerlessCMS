@@ -1,7 +1,8 @@
 <script lang='ts'>
 
 import { page } from '$app/stores'
-import { b64Decode } from '$lib/b64';
+import { b64Decode, b64Encode } from '$lib/b64';
+import { onMount } from 'svelte';
 interface Feature {
 		number: string;
 		title: string;
@@ -18,13 +19,36 @@ interface Feature {
 	}
 	b64Decode
 	let baseIframeUrl = "http://localhost:3000/play/#";	
-	let hash = $page.url.hash.slice(1);	
+	let hash = $page.url.hash.slice(1);
+	let html;
 	let iframeUrl:string = `${baseIframeUrl}${(hash || '').replace("%20","+")}`;
-	let decodedHash = hash ? b64Decode(hash) : '';
+	let decodedHash = '';
+	let ServerlessCMS: ServerlessCMS | '' = '';
+
+	onMount(async () => {
+		decodedHash = hash ? b64Decode(hash) : '';
+		ServerlessCMS = parse(decodedHash);
+	});
+	
+	function stringifyJSObject(obj) {
+		const replacer = (key, value) => {
+			if (typeof value === 'string') {
+			return `"${value.replace(/"/g, '\\"')}"`;
+			}
+			return value;
+		};
+
+		return JSON.stringify(obj, replacer, 2)
+			.replace(/\"([^(\")"]+)\":/g, '$1:').replace(/\\"/g, '');;
+	}
+
+
 	function parse(decodedHash) {
 		if(!decodedHash) 
 			return '';
-		const jsObjectStr = decodedHash[Object.keys(decodedHash)?.[0]].split('---')[1];
+		const chunks = decodedHash[Object.keys(decodedHash)?.[0]].split('---');		
+		const jsObjectStr = chunks?.[1];
+		html = chunks?.[2];
 		try {
 			return (new Function(`${jsObjectStr}; return ServerlessCMS;`))();
 		}
@@ -34,8 +58,26 @@ interface Feature {
 		}
 	}
 	
-	let ServerlessCMS = parse(decodedHash);
-	console.log(ServerlessCMS);
+	
+	$: {
+		if(ServerlessCMS && html) {
+			iframeUrl = `${baseIframeUrl}${b64Encode({["inmemory://model/src/index.astro"]: `
+			---
+			let ServerlessCMS = ${stringifyJSObject(ServerlessCMS)}
+			---
+			${html}
+			`})}`;
+			const iframe = document.querySelector('#preview-iframe');
+			iframe?.contentWindow?.postMessage({ message: 'reload', newContent: `
+			---
+			let ServerlessCMS = ${stringifyJSObject(ServerlessCMS)}
+			---
+			${html}
+			` }, '*');
+
+		}
+	}
+
 	const getLabel = (key: string, index?: number, subKey?: string): string => {
     const labelName = subKey 
       ? `${key.charAt(0).toUpperCase() + key.slice(1)} ${index! + 1} - ${subKey.charAt(0).toUpperCase() + subKey.slice(1)}`
@@ -109,7 +151,7 @@ interface Feature {
 	</section>
 	
 	<main class="w-2/3">
-		<iframe src={iframeUrl} class="w-full h-full flex flex-col iframe"/>
+		<iframe key={iframeUrl} src={iframeUrl} id="preview-iframe" class="w-full h-full flex flex-col iframe" />		
 	</main>
 </div>
 

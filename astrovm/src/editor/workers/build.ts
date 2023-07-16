@@ -35,7 +35,7 @@ import type { Highlighter } from 'shiki';
 // Inspired by https://github.com/egoist/play-esbuild/blob/main/src/lib/esbuild.ts
 // I didn't even know this was exported by esbuild, great job @egoist
 export const createNotice = async (errors: PartialMessage[], kind: ("error" | "warning") & {} = "error") => {
-    let res = await formatMessages(errors, { kind });
+    const res = await formatMessages(errors, { kind });
     return res.join("\n\n");
 }
 
@@ -62,7 +62,7 @@ let _initialized = false;
 
 const initEvent = new EventEmitter();
 
-let init = async () => {
+const init = async () => {
     try {
         _initialized = false;
         if (!_initialized) {
@@ -92,8 +92,8 @@ const start = (port) => {
     const BuildEvents = new EventEmitter();
 
     const postMessage = (obj: any) => {
-        let messageStr = JSON.stringify(obj);
-        let encodedMessage = encode(messageStr);
+        const messageStr = JSON.stringify(obj);
+        const encodedMessage = encode(messageStr);
         port.postMessage(encodedMessage, [encodedMessage.buffer]);
     };
 
@@ -131,10 +131,10 @@ const start = (port) => {
     }
 
     const getFile = (path: string, type: 'string' | 'buffer' = "buffer", importer?: string) => {
-        let resolvedPath = getResolvedPath(path, importer);
+        const resolvedPath = getResolvedPath(path, importer);
 
         if (FileSystem.has(resolvedPath)) {
-            let file = FileSystem.get(resolvedPath);
+            const file = FileSystem.get(resolvedPath);
             return type == "string" ? decode(file) : file;
         }
     }
@@ -152,8 +152,8 @@ const start = (port) => {
     }
 
     BuildEvents.on("delete", (details) => {
-        let { filenames = [] } = details ?? {};
-        for (let filename of filenames) {
+        const { filenames = [] } = details ?? {};
+        for (const filename of filenames) {
             if (FileSystem.has(filename)) {
                 try {
                     FileSystem.delete(filename);
@@ -179,7 +179,8 @@ const start = (port) => {
 
         const { ModuleWorkerSupported } = details;
         let { models = [], current } = details ?? {};
-        let files = [];
+        console.log({current});
+        const files = [];
         let html, js, shiki;
 
         if (models.length <= 0 && current) models = [current];
@@ -187,22 +188,22 @@ const start = (port) => {
         (async () => {
             try {
                 // Preload all components and files to avoid esbuild building while still missing files
-                for (let data of models) {
-                    let filename: string = `${data.filename}`;
-                    let input: string = `${data.value}`.trim(); // Ensure input is a string
+                for (const data of models) {
+                    const filename = `${data.filename}`;
+                    const input: string = `${data.value}`.trim(); // Ensure input is a string
 
                     setFile(filename, input);
                 }
 
                 /* Esbuild */
-                for (let data of models) {
-                    let filename: string = `${data.filename}`;
-                    let outfile = `/dist/${filename.slice('/src/pages/'.length)}`;
-                    let input: string = `${data.value}`.trim(); // Ensure input is a string
+                for (const data of models) {
+                    const filename = `${data.filename}`;
+                    const outfile = `/dist/${filename.slice('/src/pages/'.length)}`;
+                    const input: string = `${data.value}`.trim(); // Ensure input is a string
 
                     if (input.length <= 0) continue;
 
-                    let content: string = "";
+                    let content = "";
                     let result: Awaited<ReturnType<typeof build>>;
                     // setFile
                     try {
@@ -268,7 +269,7 @@ const start = (port) => {
                                 message: [await createNotice(result.warnings, "warning")]
                             }
                         });
-
+                    console.log("Here",{content});
                     const output = await renderAstroToHTML(content, ModuleWorkerSupported);
                     if ("html" in output)
                         content = output?.html?.toString?.().trim?.();
@@ -287,11 +288,11 @@ const start = (port) => {
 
                 /* Astro */
                 if (current) {
-                    let timing = createTimestamp();
+                    const timing = createTimestamp();
                     timestamp(timing, 'init');
 
-                    let filename: string = `${current.filename}`;
-                    let input: string = `${current.value}`;
+                    const filename = `${current.filename}`;
+                    const input = `${current.value}`;
 
                     try {
                         let content = await transform(input, {
@@ -319,11 +320,11 @@ const start = (port) => {
 
                 /* Shikijs */
                 if (current && html) {
-                    let timing = createTimestamp();
+                    const timing = createTimestamp();
                     timestamp(timing, 'init');
 
-                    let filename: string = `${current.filename}`;
-                    let input: string = `${current.value}`;
+                    const filename = `${current.filename}`;
+                    const input = `${current.value}`;
 
                     try {
                         let content = prettier.format(html?.content, {
@@ -380,14 +381,14 @@ const start = (port) => {
     }, 250));
 
     port.onmessage = ({ data }) => {
-        let { event, details } = JSON.parse(decode(data));
+        const { event, details } = JSON.parse(decode(data));
         BuildEvents.emit(event, details);
     };
 }
 
 // @ts-ignore
 self.onconnect = (e) => {
-    let [port] = e.ports;
+    const [port] = e.ports;
     start(port);
 }
 

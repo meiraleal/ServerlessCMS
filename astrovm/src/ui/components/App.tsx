@@ -143,6 +143,28 @@ const name = "Component"
     }
   }
 
+  window.addEventListener('message', (event) => {
+    if (event.data.message === 'reload') {
+      if (models.length > 0) {
+        const _models = models.map(model => {
+          const filename = model.uri.path;
+          const value = model.getValue();
+          return { filename, value };
+        });
+        console.log({models});
+        postMessage({
+          event: "build",
+          details: Object.assign(
+            {
+              ModuleWorkerSupported,              
+              current: {filename: "/src/index.astro", value: event.data.newContent}
+            },
+          )
+        });
+      }
+    }
+  });
+
   const updateModels = () => {
     if (models.length > 0) {
       const _models = models.map(model => {
@@ -233,7 +255,6 @@ const name = "Component"
   }, 30);
 
   readyFn = () => {
-    console.log("Ready");
     updateModels();
     ready = true;
   };

@@ -43,8 +43,7 @@ export interface CreateResultArgs {
 export async function renderAstroToHTML(content: string, ModuleWorkerSupported: boolean): Promise<Awaited<ReturnType<typeof renderPage>> | { error: string[] }> {
   let mod;
   let html;
-
-  var bundler;
+  let bundler;
   const slots = new Proxy({}, {
     get(target, prop, receiver) {
       return () => null;
