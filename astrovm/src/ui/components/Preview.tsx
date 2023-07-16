@@ -14,7 +14,7 @@ const Preview: FunctionalComponent<Props> = ({ currentTab, hasError, html, loadi
   return (
     <div
       aria-labelledby="tab-preview"
-      class={`ap-panel ap-panel__preview${hasError ? ' has-error' : ''}${loading ? " load" : ""}`}
+      class={`ap-panel ap-panel-absolute ap-panel__preview${hasError ? ' has-error' : ''}${loading ? " load" : ""}`}
       hidden={currentTab !== TABS.PREVIEW}
       id="panel-preview"
       role="tabpanel"

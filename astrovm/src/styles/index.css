@@ -275,6 +275,12 @@ button {
   transform: translateZ(0); /* paint optimization: render each panel on separate composite layers (reduce repaints) */
 }
 
+.ap-panel-absolute {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .ap-panel.has-error {
   opacity: 0.65;
 }

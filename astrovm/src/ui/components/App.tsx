@@ -10,7 +10,6 @@ import HTML from './HTML';
 import Menu from './Menu';
 import Preview from './Preview';
 import StatusBar from './StatusBar';
-import Share from './Share';
 import useMonaco from '../hooks/useMonaco';
 import { TABS } from '../const';
 import useWindowSize from '../hooks/useWindowSize';
@@ -24,15 +23,15 @@ let initialized = false;
 let ready = false;
 
 const postMessage = (obj: any) => {
-  let messageStr = JSON.stringify(obj);
-  let encodedMessage = encode(messageStr);
+  const messageStr = JSON.stringify(obj);
+  const encodedMessage = encode(messageStr);
   BuildWorker.postMessage(encodedMessage , [encodedMessage.buffer]); 
 }
 
 BuildWorker.addEventListener(
 "message",
   ({ data }: MessageEvent<Uint8Array>) => {
-    let { event, details } = JSON.parse(decode(data));
+    const { event, details } = JSON.parse(decode(data));
     WorkerEvents.emit(event, details);
   }
 );
@@ -57,8 +56,8 @@ WorkerEvents.on({
 
 let Models = [];
 const difference = (a: any[], b: any[]) => {
-  let seta = new Set(a);
-  let setb = new Set(b);
+  const seta = new Set(a);
+  const setb = new Set(b);
   return [
     [...seta].filter(x => !setb.has(x)),  
     [...setb].filter(x => !seta.has(x))
@@ -144,9 +143,9 @@ const name = "Component"
     }
   }
 
-  let updateModels = () => {
+  const updateModels = () => {
     if (models.length > 0) {
-      let _models = models.map(model => {
+      const _models = models.map(model => {
         const filename = model.uri.path;
         const value = model.getValue();
         return { filename, value };
@@ -168,7 +167,7 @@ const name = "Component"
   };
 
   warnFn = (details) => {
-    let { type, message } = details;
+    const { type, message } = details;
     console.warn(`${type}\n${message}`);
     // console.warn(message)
 
@@ -181,7 +180,7 @@ const name = "Component"
   };
 
   errFn = (details) => {
-    let { type, error } = details;
+    const { type, error } = details;
     if (typeof error === 'object' && error.message) {
       const message = error.message.includes("virtualfs:") ?
         error.message?.split('virtualfs:')[1]?.split(' ').slice(1).join(' ').split('\n')[0]?.replace('error', 'Error') :
@@ -194,7 +193,7 @@ const name = "Component"
       setErr(JSON.stringify(message));
       return;
     } else if (Array.isArray(error) || Array.isArray(error?.errors)) {
-      let errArr = "errors" in error ? error.errors : error;
+      const errArr = "errors" in error ? error.errors : error;
       errArr.forEach((err: string) => { 
         console.error(err);
       });
@@ -225,7 +224,7 @@ const name = "Component"
   };
 
   buildFn = debounce(() => {
-    let { current } = getCurrent() ?? {};
+    const { current } = getCurrent() ?? {};
     if (current == null) return;
     postMessage({
       event: "build",
@@ -242,7 +241,7 @@ const name = "Component"
   useEffect(() => {
     if (!initialized || !ready) return;
     
-    let diff = difference(
+    const diff = difference(
       models.map(model => {
         const filename = model.uri.path;
         return `${filename}`;
@@ -267,9 +266,7 @@ const name = "Component"
 
   return (
     <>
-      <Menu currentTab={currentTab} setCurrentTab={setCurrentTab}>
-        <Share models={models} />
-      </Menu>
+      <Menu currentTab={currentTab} setCurrentTab={setCurrentTab} />
       <Editor
         currentModel={currentModel}
         currentTab={currentTab}
