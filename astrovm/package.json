@@ -1,8 +1,5 @@
 {
   "name": "astrovm",
-  "volta": {
-    "node": "14.17.6"
-  },
   "scripts": {
     "predev": "npm run prepare-shiki",
     "dev": "tsm scripts/build.ts --watch",
@@ -39,5 +36,8 @@
     "tsm": "^2.2.1",
     "typescript": "^4.6.4",
     "vite": "^2.9.8"
+  },
+  "volta": {
+    "node": "18.5.0"
   }
 }

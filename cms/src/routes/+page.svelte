@@ -1,8 +1,7 @@
 <script lang='ts'>
 	import { page } from '$app/stores'
-
-	let baseIframeUrl = "http://localhost:34895/play/#";	
-	const iframeUrl:string = `${baseIframeUrl}${$page.url.searchParams.get('content')}`;
+	let baseIframeUrl = "http://localhost:3000/play/";	
+	const iframeUrl:string = `${baseIframeUrl}${($page.url.hash || '').replace("%20","+")}`;
 </script>
 
 <div class="flex h-screen">
