@@ -2,7 +2,7 @@ import { compressToURL, decompressFromURL } from '@amoutonbrady/lz-string';
 
 const PATH_PREFIX = 'inmemory://model/src';
 function serializeData(data: Record<string, string>): string {
-    let serialized = {};
+    const serialized = {};
     for (const [key, value] of Object.entries(data)) {
         serialized[key.slice(PATH_PREFIX.length)] = compressToURL(value.trim());
     }
@@ -11,7 +11,7 @@ function serializeData(data: Record<string, string>): string {
 
 function deserializeData(data: string): Record<string, string> {
     const tmp = JSON.parse(`{${data}}`);
-    let result = {};
+    const result = {};
     for (const [key, value] of Object.entries(tmp)) {
         result[`${PATH_PREFIX}${key}`] = decompressFromURL(value as string);
     }
@@ -28,7 +28,7 @@ export function legacyB64Decode(str: string) {
 }
 
 export function newB64Decode(str: string) {
-    let tmp = decompressFromURL(str);
+    const tmp = decompressFromURL(str);
     if (!tmp) {
         return null;
     }
@@ -36,7 +36,7 @@ export function newB64Decode(str: string) {
 }
 
 export function b64Decode(str: string) {
-    let value = newB64Decode(str);
+    const value = newB64Decode(str);
     if (!value) {
         return JSON.parse(legacyB64Decode(str));
     }
