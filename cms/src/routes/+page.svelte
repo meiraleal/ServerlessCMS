@@ -18,7 +18,7 @@ interface Feature {
 		featuresList: Feature[];
 	}
 	b64Decode
-	let baseIframeUrl = "http://localhost:3000/play/#";	
+	let baseIframeUrl = "https://www.bootstrapp.ai/serverlessCMS#";	
 	let hash = $page.url.hash.slice(1);
 	let html;
 	let iframeUrl:string = `${baseIframeUrl}${(hash || '').replace("%20","+")}`;
