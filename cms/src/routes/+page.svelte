@@ -1,7 +1,57 @@
 <script lang='ts'>
-	import { page } from '$app/stores'
-	let baseIframeUrl = "http://localhost:3000/play/";	
-	const iframeUrl:string = `${baseIframeUrl}${($page.url.hash || '').replace("%20","+")}`;
+
+import { page } from '$app/stores'
+import { b64Decode } from '$lib/b64';
+interface Feature {
+		number: string;
+		title: string;
+		description: string;
+	}
+
+	interface ServerlessCMS {
+		companyName: string;
+		heroTitle: string;
+		heroDescription: string;
+		featuresTitle: string;
+		featuresDescription: string;
+		featuresList: Feature[];
+	}
+	b64Decode
+	let baseIframeUrl = "http://localhost:3000/play/#";	
+	let hash = $page.url.hash.slice(1);	
+	let iframeUrl:string = `${baseIframeUrl}${(hash || '').replace("%20","+")}`;
+	let decodedHash = hash ? b64Decode(hash) : '';
+	function parse(decodedHash) {
+		if(!decodedHash) 
+			return '';
+		const jsObjectStr = decodedHash[Object.keys(decodedHash)?.[0]].split('---')[1];
+		try {
+			return (new Function(`${jsObjectStr}; return ServerlessCMS;`))();
+		}
+		catch(error) {
+			console.log("error parsing encoded file", { error });
+			return '';
+		}
+	}
+	
+	let ServerlessCMS = parse(decodedHash);
+	console.log(ServerlessCMS);
+	const getLabel = (key: string, index?: number, subKey?: string): string => {
+    const labelName = subKey 
+      ? `${key.charAt(0).toUpperCase() + key.slice(1)} ${index! + 1} - ${subKey.charAt(0).toUpperCase() + subKey.slice(1)}`
+      : `${key.charAt(0).toUpperCase() + key.slice(1)}`;
+
+    return labelName;
+  };
+
+  const getInputID = (key: string, index?: number, subKey?: string): string => {
+    const inputID = subKey 
+      ? `${key}${index}${subKey}`
+      : `${key}`;
+
+    return inputID;
+  };
+
 </script>
 
 <div class="flex h-screen">
@@ -35,20 +85,29 @@
 			</div>
 		</div>
 	</aside>
-
-	<section class="w-1/3 bg-gray-100">
-		<form class="p-5">
-			<h2 class="text-xl mb-4">Page Editor</h2>
-
-			<label for="title" class="block mb-2 text-sm text-gray-600">Title</label>
-			<input type="text" id="title" name="title" class="mb-4 block w-full p-2 border border-gray-200 rounded-md" placeholder="Title...">
-
-			<label for="description" class="block mb-2 text-sm text-gray-600">Description</label>
-			<textarea id="description" name="description" class="mb-4 block w-full p-2 border border-gray-200 rounded-md" placeholder="Description..." rows="4"></textarea>
-
-			<button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+	<section class="w-1/3 bg-gray-100 p-10 h-screen overflow-y-auto">
+		<h2 class="text-xl mb-4">Page Editor</h2>
+		<form>
+			{#each Object.entries(ServerlessCMS) as [key, value] (key)}
+				{#if typeof value === 'string'}
+				<div class="mb-4">
+					<label class="block text-gray-700 text-sm font-bold mb-2" for={getInputID(key)}>{getLabel(key)}</label>
+					<input bind:value={ServerlessCMS[key]} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id={getInputID(key)} type="text">
+				</div>
+				{:else}
+				{#each value as item, index (index)}
+					{#each Object.entries(item) as [subKey, subValue] (subKey)}
+					<div class="mb-4">
+						<label class="block text-gray-700 text-sm font-bold mb-2" for={getInputID(key, index, subKey)}>{getLabel(key, index, subKey)}</label>
+						<input bind:value={item[subKey]} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id={getInputID(key, index, subKey)} type="text">
+					</div>
+					{/each}
+				{/each}
+				{/if}
+			{/each}
 		</form>
 	</section>
+	
 	<main class="w-2/3">
 		<iframe src={iframeUrl} class="w-full h-full flex flex-col iframe"/>
 	</main>
