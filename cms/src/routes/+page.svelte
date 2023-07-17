@@ -3,6 +3,8 @@
 import { page } from '$app/stores'
 import { b64Decode, b64Encode } from '$lib/b64';
 import { onMount } from 'svelte';
+import { PUBLIC_SERVERLESS_CMS } from '$env/static/public';
+
 interface Feature {
 		number: string;
 		title: string;
@@ -18,7 +20,7 @@ interface Feature {
 		featuresList: Feature[];
 	}
 	b64Decode
-	let baseIframeUrl = "https://www.bootstrapp.ai/serverlessCMS#";	
+	let baseIframeUrl = PUBLIC_SERVERLESS_CMS;	
 	let hash = $page.url.hash.slice(1);
 	let html;
 	let iframeUrl:string = `${baseIframeUrl}${(hash || '').replace("%20","+")}`;
