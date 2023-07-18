@@ -14,7 +14,7 @@
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<strong class="text-xl uppercase">ServerlessCMS</strong>
+				<strong class="text-xl uppercase">Bootstrapp</strong>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<a
