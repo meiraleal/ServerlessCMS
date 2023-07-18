@@ -130,7 +130,7 @@ interface Feature {
 		</div>
 	</aside>
 	<section class="w-1/3 bg-gray-100 p-10 h-screen overflow-y-auto">
-		<h2 class="text-xl mb-4">Page Editor</h2>
+		<h2 class="text-xl mb-4 dark:text-white text-black">Page Editor</h2>
 		<form>
 			{#each Object.entries(ServerlessCMS) as [key, value] (key)}
 				{#if typeof value === 'string'}
